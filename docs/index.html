@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个现代化的音乐播放器和管理系统">
+  <meta name="theme-color" content="#6366f1">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="MiMusic">
+  <title>MiMusic</title>
+  <script>
+    // 主题初始化脚本 - 在页面加载前执行，防止闪屏
+    (function() {
+      const theme = localStorage.getItem('mimusic-theme')
+      if (theme) {
+        try {
+          const themeData = JSON.parse(theme)
+          let actualTheme = themeData.mode
+          
+          // 如果是跟随系统，则检测系统主题
+          if (actualTheme === 'system') {
+            actualTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          }
+          
+          document.documentElement.setAttribute('data-theme', actualTheme)
+        } catch (e) {
+          // 解析失败，使用默认主题
+          document.documentElement.setAttribute('data-theme', 'light')
+        }
+      } else {
+        // 没有保存的主题，使用系统主题
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', systemTheme)
+      }
+    })()
+  </script>
+  <script type="module" crossorigin src="/assets/index-oVUmxvzP.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DRurSuPO.css">
+<link rel="manifest" href="/manifest.webmanifest"></head>
+<body>
+  <div id="app"></div>
+</body>
+</html>
