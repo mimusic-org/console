@@ -1,0 +1,1 @@
+import{r as e}from"./request-DV-WdtTg.js";function r(t){return e.post("/auth/login",t)}function s(t){return e.get("/auth/tokens",{params:t})}function u(t,n){return e.delete(`/auth/tokens/${t}`,{data:n})}export{s as a,r as l,u as r};

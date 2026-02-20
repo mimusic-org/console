@@ -1,1 +1,0 @@
-import{r as o}from"./request-IGgxQWOk.js";function e(n){return o.get("/songs",{params:n})}function r(n){return o.post("/songs/remote",n)}function u(n){return o.post("/songs/radio",n)}function a(n){return o.delete(`/songs/${n}`)}function d(n,t){return o.put(`/songs/${n}`,t)}export{r as a,u as b,a as d,e as l,d as u};
